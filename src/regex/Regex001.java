@@ -4,21 +4,16 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Regex001 {
-    private static final Pattern pattern = Pattern.compile("p.*q");
+
     public static void main(String[] args) {
-        validate("psq");
-        validate("pasdfghjkq");
-// kropka - dowolny znak
-        // * dowolna liczba razy to co jest przezd tym znakiem
+        RegexTester tester = new RegexTester("p.*q");
 
+        tester.validate("pasdfsdfq");
+        tester.validate("pq");
+        tester.validate("pqqqq");
+        tester.validate("p12421341234q");
+        tester.validate("qqqqq");
+        tester.validate("pasdfsadf");
     }
 
-    private static void validate(String text) {
-        Matcher matcher = pattern.matcher(text);
-        if (matcher.matches()){
-            System.out.println("prawda");
-        } else {
-            System.out.println("Fałsz");
-        }
-    }
 }
